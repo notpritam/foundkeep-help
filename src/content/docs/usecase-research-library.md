@@ -1,0 +1,41 @@
+---
+title: A research library
+description: Turn scattered sources into a searchable, connected research library you can actually navigate.
+---
+
+**Who it's for:** anyone going deep on a topic — a thesis, a market, a product
+decision, a hobby you're serious about — who keeps losing good sources in browser
+tabs and downloads.
+
+The problem isn't finding sources. It's keeping them, and finding them again three
+weeks later. FoundKeep turns a pile of clippings into a library you can search and
+navigate.
+
+## Set it up
+
+1. Make a **folder** for the topic — say, "Sleep research".
+2. Install the [browser extension](/save-from-anywhere/) so saving a source is one
+   click while you read.
+3. Turn on [AI processing](/privacy/) so every source gets a summary, tags, a
+   category, and searchable text.
+
+## The workflow
+
+1. **Capture as you read.** Save papers, articles, and threads with the extension.
+   Highlight the key passage and save the **selection** so the quote comes with you.
+2. **Let it file itself.** Each source arrives with a summary and tags. Skim the
+   summary later instead of re-reading the whole thing.
+3. **Add your own tags** for the structure that matters to you — `method`,
+   `counter-evidence`, `to-cite`. See [Folders & tags](/folders-and-tags/).
+4. **Link related sources.** Connect a paper to the article that summarized it, or
+   to your own note reacting to it. Over time the [graph](/link-saves-and-graph/)
+   shows how the argument fits together.
+5. **Search when you write.** Full-text [search](/search-and-filters/) covers
+   summaries and text pulled from PDFs and images, so a half-remembered phrase is
+   enough to find the source.
+
+## Take it further
+
+- Share a reading pack with a collaborator as a [collection](/collections/).
+- Let your AI assistant read the whole library and help you synthesize it — see
+  [A second brain for agents](/usecase-second-brain-for-agents/).

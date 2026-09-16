@@ -1,0 +1,33 @@
+---
+// FoundKeep override: add a row of links back to the main product before the
+// default Starlight footer (pagination, edit link, etc.).
+import Default from '@astrojs/starlight/components/Footer.astro';
+---
+
+<div class="fk-footer-links not-content">
+	<a href="https://foundkeep.app">FoundKeep</a>
+	<a href="https://foundkeep.app/connect">Connect agents</a>
+	<a href="https://foundkeep.app/privacy">Privacy</a>
+	<a href="https://foundkeep.app/support">Support</a>
+</div>
+
+<Default><slot /></Default>
+
+<style>
+	.fk-footer-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem 1.5rem;
+		margin-top: 3rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--sl-color-hairline);
+		font-size: var(--sl-text-sm);
+	}
+	.fk-footer-links a {
+		color: var(--sl-color-gray-3);
+		text-decoration: none;
+	}
+	.fk-footer-links a:hover {
+		color: var(--sl-color-white);
+	}
+</style>

@@ -1,0 +1,45 @@
+---
+title: Keep tweets forever
+description: Save tweets and threads with their full text and media preserved server-side — even long note-tweets.
+---
+
+**Who it's for:** anyone who's gone back to a bookmarked tweet to find it deleted,
+the account gone, or the thread cut off — and lost something they wanted to keep.
+
+A bookmark is just a pointer. If the post disappears, so does the bookmark.
+FoundKeep saves the **content**, not just the link, so what you kept stays kept.
+
+## What gets preserved
+
+When you save a tweet or a thread, FoundKeep keeps a copy **server-side**:
+
+- the **full text** — including long note-tweets and every post in a thread,
+- the **media** — images and video attached to the posts,
+
+so the save is readable later even if the original is edited or taken down.
+Articles are preserved the same way, with their readable text; saved files keep
+their originals. See [Save from anywhere](/save-from-anywhere/) for the full list
+of what FoundKeep keeps.
+
+## How to save one
+
+1. **On desktop:** open the tweet or thread, then use the
+   [browser extension](/save-from-anywhere/) — click the icon, or right-click and
+   choose FoundKeep.
+2. **On your phone:** tap **Share** on the post and choose **FoundKeep**.
+3. FoundKeep pulls in the full text and media and saves it as a **tweet**.
+
+## Find them later
+
+- Filter by **type: tweet** to browse everything you've kept from X.
+- Full-text [search](/search-and-filters/) covers the preserved text, so a phrase
+  from deep in a thread is enough to find it again.
+- Add **personal tags** to group the ones worth returning to, and
+  [link](/link-saves-and-graph/) a thread to your own notes about it.
+
+## Next
+
+- [An inspiration board](/usecase-inspiration-board/) — for the posts you keep for
+  the visuals.
+- [A second brain for agents](/usecase-second-brain-for-agents/) — let your AI read
+  the threads you've preserved.

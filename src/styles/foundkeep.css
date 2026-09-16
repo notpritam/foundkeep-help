@@ -1,0 +1,76 @@
+/* FoundKeep Help — brand theme for Starlight.
+ * Dark is the default (Linear-ish layered near-black); emerald accent both modes.
+ * Light mode keeps Starlight's readable defaults with an emerald accent. */
+
+:root {
+	/* Emerald accent (dark) */
+	--sl-color-accent-low: #123b2b;
+	--sl-color-accent: #2f9d6f;
+	--sl-color-accent-high: #8be6bb;
+	--sl-color-text-accent: #4cc38a;
+
+	/* Warm near-black neutral scale */
+	--sl-color-white: #f4f4f1;
+	--sl-color-gray-1: #e5e6e3;
+	--sl-color-gray-2: #b9bbb5;
+	--sl-color-gray-3: #8a8c85;
+	--sl-color-gray-4: #52544e;
+	--sl-color-gray-5: #2c2e2d;
+	--sl-color-gray-6: #17191a;
+	--sl-color-black: #0f1011;
+
+	/* Layered backgrounds — never pure black */
+	--sl-color-bg: #08090a;
+	--sl-color-bg-nav: #0f1011;
+	--sl-color-bg-sidebar: #0f1011;
+	--sl-color-bg-inline-code: #1a1c1d;
+	--sl-color-bg-accent: #4cc38a;
+
+	--sl-color-hairline: rgba(255, 255, 255, 0.08);
+	--sl-color-hairline-light: rgba(255, 255, 255, 0.12);
+	--sl-color-hairline-shade: rgba(0, 0, 0, 0.4);
+
+	/* Emerald text on accent buttons should be dark for contrast */
+	--sl-color-text-invert: #08090a;
+}
+
+/* Light mode: keep Starlight's readable light defaults, swap the accent to a
+ * darker emerald that passes contrast on white. */
+:root[data-theme='light'] {
+	--sl-color-accent-low: #d5f1e2;
+	--sl-color-accent: #0d7a50;
+	--sl-color-accent-high: #06402a;
+	--sl-color-text-accent: #0d7a50;
+	--sl-color-bg-accent: #0d7a50;
+	--sl-color-text-invert: #ffffff;
+}
+
+/* Site title next to the mark — tighten it up a touch. */
+.site-title {
+	font-weight: 600;
+	letter-spacing: -0.01em;
+}
+
+/* Accent-coloured action buttons (used on the splash hero). */
+.action.primary {
+	color: var(--sl-color-text-invert);
+	background: var(--sl-color-bg-accent);
+	border-color: var(--sl-color-bg-accent);
+}
+.action.primary:hover {
+	filter: brightness(1.08);
+}
+
+/* Cards: a hair of lift, emerald title on hover. */
+.card {
+	border-color: var(--sl-color-hairline-light);
+	background: var(--sl-color-bg-nav);
+}
+[data-theme='light'] .card {
+	background: var(--sl-color-gray-6);
+}
+
+/* Keep the emerald selection subtle. */
+::selection {
+	background: rgba(76, 195, 138, 0.28);
+}

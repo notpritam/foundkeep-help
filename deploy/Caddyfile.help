@@ -1,0 +1,22 @@
+# FoundKeep Help — Caddy vhost.
+#
+# This is the block to add to /etc/caddy/Caddyfile. It is NOT applied
+# automatically. Follow the shared Caddy safety ritual before touching the live
+# file:
+#   1. sudo cp /etc/caddy/Caddyfile /etc/caddy/Caddyfile.bak.$(date +%s)
+#   2. confirm every existing vhost is still present (atlas, mailroom, cutroom,
+#      voice, rig, ...) both before and after your edit
+#   3. sudo caddy validate --config /etc/caddy/Caddyfile
+#   4. sudo systemctl reload caddy
+#
+# `tls internal` is used because the site sits behind Cloudflare (add a `help`
+# CNAME -> foundkeep.app, proxied, SSL mode Full). Serve the static build from
+# /var/www/foundkeep-help.
+
+help.foundkeep.app {
+	tls internal
+	encode zstd gzip
+	root * /var/www/foundkeep-help
+	try_files {path} {path}/ {path}.html /404.html
+	file_server
+}

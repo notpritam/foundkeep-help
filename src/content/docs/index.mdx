@@ -1,0 +1,93 @@
+---
+title: FoundKeep Help
+description: Guides and tips for FoundKeep — a private place to keep the things worth keeping, and find them again.
+template: splash
+head:
+  - tag: title
+    content: FoundKeep Help
+hero:
+  tagline: A private place to keep the things worth keeping — links, highlights, photos, files, tweets, and notes — and find them again.
+  image:
+    file: ../../assets/foundkeep-mark-hero.svg
+    alt: FoundKeep
+  actions:
+    - text: Getting started
+      link: /getting-started/
+      icon: right-arrow
+      variant: primary
+    - text: Open FoundKeep
+      link: https://foundkeep.app/dashboard
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+FoundKeep is a private place to keep the things worth keeping. Save a link,
+a highlight, a photo, a file, a tweet or thread, or a quick note — from your
+browser, your phone, or any app's share menu — and FoundKeep keeps it and helps
+you find it again. It's private by default; you decide what, if anything, to share.
+
+## How it works
+
+<CardGrid>
+	<Card title="1. Save it" icon="add-document">
+		Save from the browser extension, your phone's Share sheet, or the web
+		dashboard. Bookmarks, highlights, images, files, tweets, and notes all land
+		in one place.
+	</Card>
+	<Card title="2. It gets organized" icon="list-format">
+		FoundKeep can summarize, tag, categorize, and read the text inside what you
+		save — so everything becomes searchable. You add your own folders and tags on
+		top.
+	</Card>
+	<Card title="3. Find it again" icon="magnifier">
+		Full-text search, filters, links between related saves, and a graph of
+		connections mean you can actually get back to what you kept.
+	</Card>
+</CardGrid>
+
+## Start here
+
+<CardGrid>
+	<LinkCard
+		title="Getting started"
+		description="Orient yourself in under two minutes: create an account, save your first thing, and find it again."
+		href="/getting-started/"
+	/>
+	<LinkCard
+		title="Save from anywhere"
+		description="The browser extension, iOS, Android, and the web dashboard — with concrete steps for each."
+		href="/save-from-anywhere/"
+	/>
+	<LinkCard
+		title="Folders & tags"
+		description="Folders vs. tags, AI tags vs. your personal tags, and when to use which."
+		href="/folders-and-tags/"
+	/>
+	<LinkCard
+		title="Search & filters"
+		description="Search across titles, notes, summaries, and text pulled out of images."
+		href="/search-and-filters/"
+	/>
+	<LinkCard
+		title="Connect Claude & Codex"
+		description="Turn your library into a tool your AI can read, search, and organize."
+		href="/connect-claude-codex/"
+	/>
+	<LinkCard
+		title="Privacy"
+		description="Private by default, consent-gated AI, and how to revoke agent access."
+		href="/privacy/"
+	/>
+</CardGrid>
+
+## Pick a use case
+
+<CardGrid>
+	<LinkCard title="A research library" href="/usecase-research-library/" />
+	<LinkCard title="A reading list you'll finish" href="/usecase-reading-list/" />
+	<LinkCard title="An inspiration board" href="/usecase-inspiration-board/" />
+	<LinkCard title="A second brain for agents" href="/usecase-second-brain-for-agents/" />
+	<LinkCard title="Keep tweets forever" href="/usecase-keep-tweets-forever/" />
+</CardGrid>
