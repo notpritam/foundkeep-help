@@ -5,6 +5,8 @@ description: Full-text search across titles, notes, summaries, and OCR text — 
 
 import { Steps, Aside, Badge } from '@astrojs/starlight/components';
 import SearchLayers from '../../components/diagrams/SearchLayers.astro';
+import Figure from '../../components/Figure.astro';
+import searchFiltersDark from '../../assets/screens/search-filters-dark.png';
 
 Saving is only half of FoundKeep. The other half is getting back to what you
 kept. Search and filters are how you do that.
@@ -51,6 +53,13 @@ When you know roughly what you're after, filters cut the library down fast:
 - **Status** — where a save is in its life, including whether it's still being
   processed.
 - **Category** — the category FoundKeep assigned during processing.
+
+<Figure
+	src={searchFiltersDark}
+	alt="The FoundKeep library filtered to bookmarks — the type filter bar with 'Bookmarks' selected above a grid of matching saves"
+	caption="Filter by type to cut the library down fast — here, just the bookmarks."
+	wide
+/>
 
 <Aside type="note" title="Combine them">
 Filter to **images**, then search for a word that appears in one — OCR does the

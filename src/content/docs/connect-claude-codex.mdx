@@ -5,6 +5,8 @@ description: Connect Claude Code, Claude Desktop, and Codex to your FoundKeep li
 
 import { Tabs, TabItem, Steps, Aside, Badge } from '@astrojs/starlight/components';
 import AgentMcpDiagram from '../../components/diagrams/AgentMcpDiagram.astro';
+import Figure from '../../components/Figure.astro';
+import agentsDark from '../../assets/screens/agents-dark.png';
 
 Connect an AI assistant and your FoundKeep library becomes a tool it can read,
 search, and organize. It works with **Claude Code**, **Claude Desktop**, and
@@ -28,6 +30,13 @@ authorize; after that it reconnects silently.
 You can revoke access at any time at **foundkeep.app → Settings → Agent
 connections**.
 </Aside>
+
+<Figure
+	src={agentsDark}
+	alt="FoundKeep's Agent connections screen — a form to name a connection and choose its access, alongside a short setup walkthrough"
+	caption="Agent connections: name a connection, choose what it can read or change, and connect any MCP-compatible client."
+	wide
+/>
 
 ## Set up your client
 

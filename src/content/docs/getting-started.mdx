@@ -8,6 +8,8 @@ import SceneBanner from '../../components/SceneBanner.astro';
 import FlowDiagram from '../../components/diagrams/FlowDiagram.astro';
 import CaptureSurfaces from '../../components/diagrams/CaptureSurfaces.astro';
 import alpine from '../../assets/scenic/foundkeep-alpine-1600.webp';
+import Figure from '../../components/Figure.astro';
+import libraryDark from '../../assets/screens/library-dark.png';
 
 <SceneBanner
 	image={alpine}
@@ -22,6 +24,13 @@ again. This page gets you from zero to your first save in a couple of minutes.
 The deeper guides are linked at the end.
 
 <FlowDiagram />
+
+<Figure
+	src={libraryDark}
+	alt="The FoundKeep library in dark mode — a grid of saved articles, tweets, notes, and images, each with a summary and tags"
+	caption="Your library: everything you keep, organized and searchable in one place."
+	wide
+/>
 
 ## 1. Create your account
 

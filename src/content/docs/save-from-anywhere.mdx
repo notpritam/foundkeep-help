@@ -7,6 +7,8 @@ import { Tabs, TabItem, Steps, Aside } from '@astrojs/starlight/components';
 import SceneBanner from '../../components/SceneBanner.astro';
 import CaptureSurfaces from '../../components/diagrams/CaptureSurfaces.astro';
 import mountains from '../../assets/scenic/scenic-mountains-1600.webp';
+import Figure from '../../components/Figure.astro';
+import saveDark from '../../assets/screens/save-detail-dark.png';
 
 <SceneBanner
 	image={mountains}
@@ -32,6 +34,13 @@ FoundKeep handles many kinds of things, and it keeps the right part of each:
 - **Screenshots and images** — with text pulled out so they're searchable.
 - **Video, audio, and documents** — kept as originals.
 - **Files** — anything else you want to hold onto.
+
+<Figure
+	src={saveDark}
+	alt="A saved bookmark open in FoundKeep's reader — title, AI summary, extracted article text, and a sidebar with type, category, and tags"
+	caption="Every save opens into a clean reader with its summary, readable text, and the details FoundKeep kept alongside it."
+	wide
+/>
 
 ## The four ways in
 

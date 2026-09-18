@@ -6,6 +6,8 @@ description: Create collections, share them, the difference between members and 
 import { Steps, Aside, Card, CardGrid } from '@astrojs/starlight/components';
 import SceneBanner from '../../components/SceneBanner.astro';
 import coastal from '../../assets/scenic/foundkeep-coastal-1600.webp';
+import Figure from '../../components/Figure.astro';
+import collectionsDark from '../../assets/screens/collections-dark.png';
 
 <SceneBanner
 	image={coastal}
@@ -30,6 +32,13 @@ other people can see, follow, or help build.
 3. Keep it private, or share it when it's ready.
 
 </Steps>
+
+<Figure
+	src={collectionsDark}
+	alt="The Collections view in FoundKeep — cards for a public and two private collections, each showing its description, topics, and number of finds"
+	caption="Collections gather saves into shareable pages — keep one private or open it up to anyone."
+	wide
+/>
 
 ## Members vs. followers
 
