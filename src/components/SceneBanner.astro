@@ -1,0 +1,41 @@
+---
+/**
+ * SceneBanner — a full-width scenic banner with a dark, emerald-tinted overlay
+ * and optional eyebrow / title / lead copy laid over it. Used as a top banner on
+ * docs and use-case pages. The image is optimized via astro:assets.
+ */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+	image: ImageMetadata;
+	alt: string;
+	eyebrow?: string;
+	title?: string;
+	text?: string;
+	/** Min height of the banner, e.g. "13rem". */
+	height?: string;
+}
+
+const { image, alt, eyebrow, title, text, height = '15rem' } = Astro.props;
+---
+
+<div
+	class="fk-scene not-content fk-reveal"
+	style={`--fk-scene-h:${height}`}
+>
+	<Image
+		class="fk-scene__img"
+		src={image}
+		alt={alt}
+		sizes="(min-width: 72rem) 67rem, 100vw"
+		widths={[800, 1200, 1600]}
+		loading="eager"
+	/>
+	<div class="fk-scene__overlay" aria-hidden="true"></div>
+	<div class="fk-scene__body">
+		{eyebrow && <span class="fk-scene__eyebrow">{eyebrow}</span>}
+		{title && <p class="fk-scene__title">{title}</p>}
+		{text && <p class="fk-scene__text">{text}</p>}
+	</div>
+</div>

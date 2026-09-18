@@ -1,0 +1,57 @@
+---
+/**
+ * The FoundKeep flow: Save -> AI files it -> Find it again.
+ * A flat, on-brand 3-node horizontal flow. Uses currentColor + the emerald
+ * accent so it stays crisp in light and dark. The connecting line animates
+ * (motion-safe only).
+ */
+interface Props {
+	caption?: string;
+	animated?: boolean;
+}
+const { caption = 'How FoundKeep works: save it, let it file itself, find it again.', animated = true } =
+	Astro.props;
+const flowClass = animated ? 'fk-d-flow fk-d-flow--animated' : 'fk-d-flow';
+---
+
+<figure class="fk-diagram not-content fk-reveal">
+	<svg viewBox="0 0 760 210" role="img" aria-label="Save it, then AI files it with tags, a summary and OCR, then you find it again">
+		<defs>
+			<marker id="fk-flow-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+				<path d="M0 0 L10 5 L0 10 z" class="fk-d-accent-fill" />
+			</marker>
+		</defs>
+
+		<!-- connecting line behind the nodes -->
+		<path d="M205 105 H275" class={flowClass} marker-end="url(#fk-flow-arrow)" />
+		<path d="M485 105 H555" class={flowClass} marker-end="url(#fk-flow-arrow)" />
+
+		<!-- Node 1: Save it -->
+		<g>
+			<rect x="25" y="45" width="180" height="120" rx="16" class="fk-d-node" />
+			<circle cx="65" cy="85" r="17" class="fk-d-accent" />
+			<path d="M65 78 V92 M58 85 H72" class="fk-d-accent" stroke-linecap="round" />
+			<text x="45" y="128" class="fk-d-title" font-size="19">Save it</text>
+			<text x="45" y="150" class="fk-d-label" font-size="13">link · note · image · tweet</text>
+		</g>
+
+		<!-- Node 2: AI files it -->
+		<g>
+			<rect x="290" y="45" width="180" height="120" rx="16" class="fk-d-node" />
+			<circle cx="330" cy="85" r="17" class="fk-d-accent" />
+			<path d="M330 74 l2.6 6 6.4 .5 -4.9 4.2 1.5 6.3 -5.6 -3.4 -5.6 3.4 1.5 -6.3 -4.9 -4.2 6.4 -.5 z" class="fk-d-accent-fill" />
+			<text x="310" y="128" class="fk-d-title" font-size="19">AI files it</text>
+			<text x="310" y="150" class="fk-d-label" font-size="13">tags · summary · OCR</text>
+		</g>
+
+		<!-- Node 3: Find it again -->
+		<g>
+			<rect x="555" y="45" width="180" height="120" rx="16" class="fk-d-node" />
+			<circle cx="597" cy="82" r="13" class="fk-d-accent" />
+			<path d="M607 92 l9 9" class="fk-d-accent" stroke-linecap="round" />
+			<text x="575" y="128" class="fk-d-title" font-size="19">Find it again</text>
+			<text x="575" y="150" class="fk-d-label" font-size="13">search · filters · graph</text>
+		</g>
+	</svg>
+	{caption && <figcaption>{caption}</figcaption>}
+</figure>

@@ -1,0 +1,51 @@
+---
+/**
+ * Search reach — everything FoundKeep knows about a save feeds one search box:
+ * titles, notes, AI summaries, OCR text, and readable article text.
+ */
+interface Props {
+	caption?: string;
+	animated?: boolean;
+}
+const {
+	caption = 'Search reaches every layer — including text pulled out of images and articles.',
+	animated = true,
+} = Astro.props;
+const flowClass = animated ? 'fk-d-flow fk-d-flow--animated' : 'fk-d-flow';
+const rows = [
+	'Titles',
+	'Your notes',
+	'AI summaries',
+	'OCR text from images',
+	'Readable article text',
+];
+---
+
+<figure class="fk-diagram not-content fk-reveal">
+	<svg viewBox="0 0 760 300" role="img" aria-label="Titles, notes, AI summaries, OCR text and readable article text all feed a single search">
+		<defs>
+			<marker id="fk-search-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+				<path d="M0 0 L10 5 L0 10 z" class="fk-d-accent-fill" />
+			</marker>
+		</defs>
+
+		{rows.map((label, i) => {
+			const y = 26 + i * 50;
+			return (
+				<g>
+					<rect x="30" y={y} width="270" height="36" rx="10" class="fk-d-node" />
+					<circle cx="52" cy={y + 18} r="4" class="fk-d-accent-fill" />
+					<text x="70" y={y + 23} class="fk-d-label" font-size="14">{label}</text>
+					<path d={`M300 ${y + 18} C 400 ${y + 18}, 470 150, 566 150`} class={flowClass} marker-end="url(#fk-search-arrow)" />
+				</g>
+			);
+		})}
+
+		<!-- search focal node -->
+		<circle cx="620" cy="150" r="46" class="fk-d-accent-fill" />
+		<circle cx="612" cy="142" r="15" fill="none" stroke="var(--sl-color-text-invert)" stroke-width="3.5" />
+		<path d="M623 153 l12 12" stroke="var(--sl-color-text-invert)" stroke-width="3.5" stroke-linecap="round" />
+		<text x="620" y="222" text-anchor="middle" class="fk-d-title" font-size="16">Search</text>
+	</svg>
+	{caption && <figcaption>{caption}</figcaption>}
+</figure>

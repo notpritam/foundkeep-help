@@ -1,0 +1,55 @@
+---
+/**
+ * Folders vs. tags — a save lives in one folder (where it lives) but can carry
+ * many tags (what it's about). Flat, on-brand SVG.
+ */
+interface Props {
+	caption?: string;
+}
+const { caption = 'One folder, many tags: a rule of thumb that keeps the big picture tidy and lets you slice across it.' } =
+	Astro.props;
+const tags = [
+	{ label: 'read-later', x: 515, y: 60, w: 150 },
+	{ label: 'pricing', x: 515, y: 110, w: 120 },
+	{ label: 'saas', x: 515, y: 160, w: 96 },
+];
+---
+
+<figure class="fk-diagram not-content fk-reveal">
+	<svg viewBox="0 0 760 250" role="img" aria-label="A save sits in one folder but can carry many tags">
+		<defs>
+			<marker id="fk-ft-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+				<path d="M0 0 L10 5 L0 10 z" class="fk-d-accent-fill" />
+			</marker>
+		</defs>
+
+		<!-- folder -->
+		<g transform="translate(40 78)">
+			<path
+				d="M4 8 H36 l10 12 H92 a6 6 0 0 1 6 6 V80 a6 6 0 0 1 -6 6 H4 a6 6 0 0 1 -6 -6 V14 a6 6 0 0 1 6 -6 Z"
+				class="fk-d-accent"
+				stroke-linejoin="round"
+			/>
+			<text x="46" y="120" text-anchor="middle" class="fk-d-label" font-size="14">one folder</text>
+		</g>
+
+		<!-- arrow folder -> save -->
+		<path d="M150 125 H300" class="fk-d-flow" marker-end="url(#fk-ft-arrow)" />
+
+		<!-- the save -->
+		<rect x="305" y="90" width="140" height="70" rx="14" class="fk-d-node" />
+		<text x="375" y="123" text-anchor="middle" class="fk-d-title" font-size="17">A save</text>
+		<text x="375" y="144" text-anchor="middle" class="fk-d-label" font-size="12">lives in one place</text>
+
+		<!-- tags -->
+		{tags.map((t) => (
+			<g>
+				<path d={`M445 125 C 480 125, 485 ${t.y + 17}, ${t.x} ${t.y + 17}`} class="fk-d-edge" />
+				<rect x={t.x} y={t.y} width={t.w} height="34" rx="17" class="fk-d-node" />
+				<circle cx={t.x + 20} cy={t.y + 17} r="4" class="fk-d-accent-fill" />
+				<text x={t.x + 34} y={t.y + 22} font-size="14" fill="var(--fk-emerald)" font-weight="600">#{t.label}</text>
+			</g>
+		))}
+	</svg>
+	{caption && <figcaption>{caption}</figcaption>}
+</figure>

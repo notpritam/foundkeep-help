@@ -3,12 +3,17 @@ title: Search & filters
 description: Full-text search across titles, notes, summaries, and OCR text — plus filters by type, status, and category.
 ---
 
+import { Steps, Aside, Badge } from '@astrojs/starlight/components';
+import SearchLayers from '../../components/diagrams/SearchLayers.astro';
+
 Saving is only half of FoundKeep. The other half is getting back to what you
 kept. Search and filters are how you do that.
 
 ## Full-text search
 
 Search looks across everything FoundKeep knows about a save, not just its title:
+
+<SearchLayers />
 
 - **Titles** of pages, files, and notes.
 - **Your notes** and the text you wrote.
@@ -17,30 +22,40 @@ Search looks across everything FoundKeep knows about a save, not just its title:
   is findable by the words inside it.
 - **Readable text** extracted from saved articles.
 
+<Aside type="tip" title="Why turn on AI processing">
 Because summaries, OCR, and extracted text feed search, turning on
-[AI processing](/privacy/) makes your whole library dramatically easier to
-find your way around. It's what turns a pile of saves into something you can
-actually query.
+[AI processing](/privacy/) makes your whole library dramatically easier to find
+your way around. It's what turns a pile of saves into something you can actually
+query.
+</Aside>
 
 To search:
+
+<Steps>
 
 1. From your [dashboard](https://foundkeep.app/dashboard), start typing in the
    search box.
 2. Results update as you go, ranked across all the text above.
 3. Open a result, or keep typing to narrow it.
 
+</Steps>
+
 ## Filters
 
 When you know roughly what you're after, filters cut the library down fast:
 
-- **Type** — note, bookmark, tweet, selection, screenshot, image, video, audio,
-  document, or file.
+- **Type** — <Badge text="note" /> <Badge text="bookmark" /> <Badge text="tweet" />
+  <Badge text="selection" /> <Badge text="screenshot" /> <Badge text="image" />
+  <Badge text="video" /> <Badge text="audio" /> <Badge text="document" />
+  <Badge text="file" />
 - **Status** — where a save is in its life, including whether it's still being
   processed.
 - **Category** — the category FoundKeep assigned during processing.
 
-Combine filters with a search term to zero in: filter to **images**, then search
-for a word that appears in one — OCR does the rest.
+<Aside type="note" title="Combine them">
+Filter to **images**, then search for a word that appears in one — OCR does the
+rest.
+</Aside>
 
 ## Tips
 

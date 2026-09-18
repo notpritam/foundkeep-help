@@ -2,6 +2,9 @@
 title: Build a design swipe file that files itself
 date: 2026-09-17
 excerpt: Clip UI screenshots, gradients, and component libraries from anywhere. FoundKeep reads the text inside them, tags them, and keeps the whole pile searchable — even a screenshot.
+cover:
+  alt: A sculptural concrete staircase in warm, directional light
+  image: ../../../assets/scenic/studio-architecture-1024.webp
 authors:
   - foundkeep
 tags:
@@ -10,6 +13,10 @@ tags:
   - OCR
   - Organizing
 ---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+import SearchLayers from '../../../components/diagrams/SearchLayers.astro';
+import CaptureSurfaces from '../../../components/diagrams/CaptureSurfaces.astro';
 
 Every designer and builder ends up with a hoard: screenshots of good UI,
 gradients you'll use *someday*, a running list of component libraries, whole apps
@@ -23,6 +30,8 @@ The fix isn't more discipline. It's making the pile file and find *itself*.
 
 Good references show up mid-scroll, and the tool that catches them has to be right
 there. FoundKeep gives you a few ways in, all landing in one library:
+
+<CaptureSurfaces />
 
 - The **browser extension** (Chrome, Edge, Brave) — click the icon to save the
   page, or right-click an image or a highlighted passage to save just that.
@@ -39,27 +48,33 @@ Here's the difference. When you turn on AI processing, FoundKeep runs **OCR** on
 your images — it pulls the words *out* of the picture. So a screenshot of a
 pricing page is findable by searching `pricing`. A screenshot of a settings screen
 turns up when you search for a label that was in it. You don't caption anything by
-hand; the text was already there, and now it's searchable. Alongside OCR each save
-gets a short **summary** and **tags**, so even a wordless gradient lands with
-something to grab onto later. See [Search & filters](/search-and-filters/) for
-what search actually reaches.
+hand; the text was already there, and now it's searchable.
+
+<SearchLayers caption="OCR and summaries feed the same search box — even a wordless gradient lands with something to grab onto." />
 
 That's what flips a hoard into a resource: you stop *remembering where you put it*
-and start *asking for what's in it*.
+and start *asking for what's in it*. See [Search & filters](/search-and-filters/)
+for what search actually reaches.
 
 ## Keep it tidy without babysitting it
 
 Group the visual stuff in a **Design folder**, or turn a set into a
 [collection](/collections/) you can share. Add **personal tags** for the vibe —
 `bold-type`, `dark-ui`, `warm-palette` — so you can pull a mood together in one
-go. And if you've connected an assistant, let it keep the folder in order: filing
-new clips, tagging them, and linking a gradient to the layout it would suit. (It
-can tidy and link, but it can't delete — that stays with you.)
+go.
+
+<Aside type="note" title="Let an agent keep it in order">
+If you've connected an assistant, let it file new clips, tag them, and link a
+gradient to the layout it would suit. (It can tidy and link, but it can't delete —
+that stays with you.)
+</Aside>
 
 For the full setup, [An inspiration board](/usecase-inspiration-board/) walks
 through building one end to end.
 
 ## How to do this in FoundKeep
+
+<Steps>
 
 1. Make a **Design** folder — or a [collection](/collections/) if you want to
    share it.
@@ -72,3 +87,5 @@ through building one end to end.
    **type: image**. See [Search & filters](/search-and-filters/).
 6. Add personal tags for the vibe, and [link](/link-saves-and-graph/) references
    that share a direction so they surface together.
+
+</Steps>

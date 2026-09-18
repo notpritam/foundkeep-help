@@ -5,23 +5,14 @@ template: splash
 head:
   - tag: title
     content: FoundKeep Help
-hero:
-  tagline: A private place to keep the things worth keeping — links, highlights, photos, files, tweets, and notes — and find them again.
-  image:
-    file: ../../assets/foundkeep-mark-hero.svg
-    alt: FoundKeep
-  actions:
-    - text: Getting started
-      link: /getting-started/
-      icon: right-arrow
-      variant: primary
-    - text: Open FoundKeep
-      link: https://foundkeep.app/dashboard
-      icon: external
-      variant: minimal
 ---
 
 import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import HomeHero from '../../components/HomeHero.astro';
+import FlowDiagram from '../../components/diagrams/FlowDiagram.astro';
+import stillwater from '../../assets/scenic/foundkeep-stillwater-1600.webp';
+
+<HomeHero image={stillwater} alt="A still mountain lake at dawn, mirror-calm" />
 
 FoundKeep is a private place to keep the things worth keeping. Save a link,
 a highlight, a photo, a file, a tweet or thread, or a quick note — from your
@@ -30,6 +21,9 @@ you find it again. It's private by default; you decide what, if anything, to sha
 
 ## How it works
 
+<FlowDiagram />
+
+<div class="fk-reveal">
 <CardGrid>
 	<Card title="1. Save it" icon="add-document">
 		Save from the browser extension, your phone's Share sheet, or the web
@@ -46,9 +40,11 @@ you find it again. It's private by default; you decide what, if anything, to sha
 		connections mean you can actually get back to what you kept.
 	</Card>
 </CardGrid>
+</div>
 
 ## Start here
 
+<div class="fk-reveal">
 <CardGrid>
 	<LinkCard
 		title="Getting started"
@@ -81,9 +77,11 @@ you find it again. It's private by default; you decide what, if anything, to sha
 		href="/privacy/"
 	/>
 </CardGrid>
+</div>
 
 ## Pick a use case
 
+<div class="fk-reveal">
 <CardGrid>
 	<LinkCard title="A research library" href="/usecase-research-library/" />
 	<LinkCard title="A reading list you'll finish" href="/usecase-reading-list/" />
@@ -91,11 +89,13 @@ you find it again. It's private by default; you decide what, if anything, to sha
 	<LinkCard title="A second brain for agents" href="/usecase-second-brain-for-agents/" />
 	<LinkCard title="Keep tweets forever" href="/usecase-keep-tweets-forever/" />
 </CardGrid>
+</div>
 
 ## From the blog
 
 Stories, workflows, and real examples of people putting FoundKeep to work.
 
+<div class="fk-reveal">
 <CardGrid>
 	<LinkCard
 		title="Let an AI agent run your library"
@@ -108,3 +108,4 @@ Stories, workflows, and real examples of people putting FoundKeep to work.
 		href="/blog/"
 	/>
 </CardGrid>
+</div>

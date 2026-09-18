@@ -1,0 +1,30 @@
+---
+title: Page not found
+description: We couldn't find that page.
+template: splash
+editUrl: false
+prev: false
+next: false
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+import SceneBanner from '../../components/SceneBanner.astro';
+import stillwater from '../../assets/scenic/foundkeep-stillwater-1600.webp';
+
+<SceneBanner
+	image={stillwater}
+	alt="A quiet lake at dawn"
+	eyebrow="404"
+	title="That page isn't here"
+	text="It may have moved. Try one of these instead."
+	height="14rem"
+/>
+
+<CardGrid>
+	<LinkCard title="Help home" description="Start from the top." href="/" />
+	<LinkCard title="Getting started" description="Orient a brand-new account in two minutes." href="/getting-started/" />
+	<LinkCard title="Save from anywhere" description="Every way to save to FoundKeep." href="/save-from-anywhere/" />
+	<LinkCard title="Open FoundKeep" description="Your library." href="https://foundkeep.app/dashboard" />
+</CardGrid>
+
+Still stuck? Reach out via [foundkeep.app/support](https://foundkeep.app/support).

@@ -3,6 +3,19 @@ title: An inspiration board
 description: Collect images, tweets, and screenshots into a visual board you can search and share.
 ---
 
+import { Steps, Aside } from '@astrojs/starlight/components';
+import SceneBanner from '../../components/SceneBanner.astro';
+import SearchLayers from '../../components/diagrams/SearchLayers.astro';
+import studio from '../../assets/scenic/studio-architecture-1024.webp';
+
+<SceneBanner
+	image={studio}
+	alt="A sculptural concrete staircase in warm, directional light"
+	eyebrow="Use case"
+	title="An inspiration board"
+	text="Collect images, tweets, and screenshots into a visual board you can actually search."
+/>
+
 **Who it's for:** designers, writers, makers, and anyone who collects visual
 references — screenshots of good UI, photos, tweets with a sharp turn of phrase.
 
@@ -12,13 +25,19 @@ them.
 
 ## Set it up
 
+<Steps>
+
 1. Make a **folder** or a [collection](/collections/) — "UI inspiration",
    "Colour", "Copy I love".
 2. On your phone, add FoundKeep to the **Share** sheet; on desktop, pin the
    [extension](/save-from-anywhere/).
 3. Turn on [AI processing](/privacy/) so images get OCR and tags.
 
+</Steps>
+
 ## The workflow
+
+<Steps>
 
 1. **Grab it fast.** Screenshot on your phone, then Share → FoundKeep. On desktop,
    right-click an image and save it, or save a tweet whole.
@@ -30,11 +49,17 @@ them.
 4. **Link the set.** When a few references share a direction, [link them](/link-saves-and-graph/)
    so opening one leads to the rest.
 
+</Steps>
+
+<SearchLayers caption="OCR pulls the words out of your screenshots, so the whole board is searchable." />
+
 ## Share it
 
+<Aside type="tip">
 Turn the folder into a [collection](/collections/) and share it with a
 collaborator as a member, or make it public so others can follow your board. See
 [Collections & sharing](/collections/).
+</Aside>
 
 ## Next
 

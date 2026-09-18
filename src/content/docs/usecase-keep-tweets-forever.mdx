@@ -3,6 +3,18 @@ title: Keep tweets forever
 description: Save tweets and threads with their full text and media preserved server-side — even long note-tweets.
 ---
 
+import { Steps, Aside, Card, CardGrid } from '@astrojs/starlight/components';
+import SceneBanner from '../../components/SceneBanner.astro';
+import mountains from '../../assets/scenic/scenic-mountains-1600.webp';
+
+<SceneBanner
+	image={mountains}
+	alt="An enduring range of mountains under an open sky"
+	eyebrow="Use case"
+	title="Keep tweets forever"
+	text="Save the content, not just the link — full text and media, preserved server-side."
+/>
+
 **Who it's for:** anyone who's gone back to a bookmarked tweet to find it deleted,
 the account gone, or the thread cut off — and lost something they wanted to keep.
 
@@ -13,15 +25,24 @@ FoundKeep saves the **content**, not just the link, so what you kept stays kept.
 
 When you save a tweet or a thread, FoundKeep keeps a copy **server-side**:
 
-- the **full text** — including long note-tweets and every post in a thread,
-- the **media** — images and video attached to the posts,
+<CardGrid>
+	<Card title="The full text" icon="document">
+		Including long note-tweets and every post in a thread — not a truncated
+		preview.
+	</Card>
+	<Card title="The media" icon="star">
+		Images and video attached to the posts, kept alongside the text.
+	</Card>
+</CardGrid>
 
-so the save is readable later even if the original is edited or taken down.
+So the save is readable later even if the original is edited or taken down.
 Articles are preserved the same way, with their readable text; saved files keep
 their originals. See [Save from anywhere](/save-from-anywhere/) for the full list
 of what FoundKeep keeps.
 
 ## How to save one
+
+<Steps>
 
 1. **On desktop:** open the tweet or thread, then use the
    [browser extension](/save-from-anywhere/) — click the icon, or right-click and
@@ -29,13 +50,16 @@ of what FoundKeep keeps.
 2. **On your phone:** tap **Share** on the post and choose **FoundKeep**.
 3. FoundKeep pulls in the full text and media and saves it as a **tweet**.
 
+</Steps>
+
 ## Find them later
 
-- Filter by **type: tweet** to browse everything you've kept from X.
-- Full-text [search](/search-and-filters/) covers the preserved text, so a phrase
-  from deep in a thread is enough to find it again.
-- Add **personal tags** to group the ones worth returning to, and
-  [link](/link-saves-and-graph/) a thread to your own notes about it.
+<Aside type="tip">
+Filter by **type: tweet** to browse everything you've kept from X. Full-text
+[search](/search-and-filters/) covers the preserved text, so a phrase from deep in
+a thread is enough to find it again — add **personal tags** to group the ones
+worth returning to, and [link](/link-saves-and-graph/) a thread to your own notes.
+</Aside>
 
 ## Next
 

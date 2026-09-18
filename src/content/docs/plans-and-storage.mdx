@@ -3,31 +3,41 @@ title: Plans & storage
 description: Free vs. Pro, early-access AI for everyone, complimentary Pro for the friends beta, and the storage cap.
 ---
 
+import { Aside, Badge, Card, CardGrid } from '@astrojs/starlight/components';
+import Figure from '../../components/Figure.astro';
+import studio from '../../assets/scenic/studio-architecture-1024.webp';
+
 FoundKeep has two plans. Both let you save, organize, search, and connect your
 agents — the difference is mostly about how much you can keep.
 
-## Free
-
-The Free plan is a real, useful FoundKeep account. You can save from every
-surface, organize with folders and tags, search your whole library, build
-[collections](/collections/), and [connect Claude & Codex](/connect-claude-codex/).
-
-## Pro — $5/month
-
-Pro is for people who lean on FoundKeep every day and want more room to keep
-things. It's **$5/month**.
+<CardGrid>
+	<Card title="Free" icon="open-book">
+		A real, useful FoundKeep account. Save from every surface, organize with
+		folders and tags, search your whole library, build
+		[collections](/collections/), and [connect Claude & Codex](/connect-claude-codex/).
+	</Card>
+	<Card title="Pro — $5/month" icon="star">
+		<Badge text="$5/mo" variant="success" /> For people who lean on FoundKeep
+		every day and want more room to keep things. Same features, a higher storage
+		ceiling.
+	</Card>
+</CardGrid>
 
 ## AI during early access
 
+<Aside type="tip" title="Free during early access">
 [AI processing](/privacy/) — summaries, tags, categories, OCR, and readable-text
 extraction — is **available on all plans during early access**, Free included.
 It's consent-gated: you turn it on in settings, and you can re-run it per item.
 This is what makes your library searchable, so it's worth enabling.
+</Aside>
 
 ## Friends beta
 
+<Aside type="note" title="Complimentary Pro">
 If you're here through the **friends beta**, your account has **complimentary Pro**.
 You don't need to do anything to claim it.
+</Aside>
 
 ## Storage cap
 
@@ -35,6 +45,12 @@ Every account has a **storage cap** — a limit on how much you can keep. Preser
 articles and tweets, images, files, and other media all count toward it. Pro
 raises the ceiling. If you're bumping against the cap, that's the signal to
 consider Pro.
+
+<Figure
+	src={studio}
+	alt="A concrete staircase in warm light — room, structure, and space"
+	caption="Room to keep what matters — and the structure to find it again."
+/>
 
 ## Next
 

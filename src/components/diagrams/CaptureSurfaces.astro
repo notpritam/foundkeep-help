@@ -1,0 +1,24 @@
+---
+/**
+ * Capture surfaces — the four ways into FoundKeep, as a row of spot-icon tiles.
+ * Reuses Starlight's built-in icons; everything lands in one library.
+ */
+import { Icon } from '@astrojs/starlight/components';
+
+const surfaces = [
+	{ icon: 'puzzle', label: 'Browser extension', hint: 'Chrome · Edge · Brave' },
+	{ icon: 'apple', label: 'iOS Share sheet', hint: 'save from any app' },
+	{ icon: 'mobile-android', label: 'Android beta', hint: 'signed APK' },
+	{ icon: 'window', label: 'Web dashboard', hint: 'paste · drop · note' },
+] as const;
+---
+
+<div class="fk-capture not-content fk-reveal">
+	{surfaces.map((s) => (
+		<div class="fk-capture__item">
+			<span class="fk-capture__icon"><Icon name={s.icon} /></span>
+			<span class="fk-capture__label">{s.label}</span>
+			<span class="fk-capture__hint">{s.hint}</span>
+		</div>
+	))}
+</div>

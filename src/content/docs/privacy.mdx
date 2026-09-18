@@ -3,16 +3,35 @@ title: Privacy
 description: Private by default, you control what's shared, AI processing is consent-gated, and how to revoke agent connections.
 ---
 
+import { Steps, Aside, Card, CardGrid } from '@astrojs/starlight/components';
+import SceneBanner from '../../components/SceneBanner.astro';
+import stillwater from '../../assets/scenic/foundkeep-stillwater-1600.webp';
+
+<SceneBanner
+	image={stillwater}
+	alt="A calm, mirror-still lake at first light"
+	eyebrow="Privacy"
+	title="Private by default"
+	text="Not a setting you have to find — the default. You decide what, if anything, anyone else sees."
+	height="13rem"
+/>
+
 FoundKeep is a *private* place to keep things. That's the default, not a setting
 you have to find. This page explains what stays private, what you control, and how
 to turn things off.
 
 ## Private by default
 
-Everything you save is **private to you** unless you choose to share it. Saving
-something never publishes it. You decide, item by item and collection by
-collection, what — if anything — anyone else can see. See
-[Collections & sharing](/collections/) for how sharing works when you do want it.
+<CardGrid>
+	<Card title="Yours alone" icon="approve-check">
+		Everything you save is **private to you** unless you choose to share it.
+		Saving something never publishes it.
+	</Card>
+	<Card title="You decide" icon="setting">
+		Item by item and collection by collection, you decide what — if anything —
+		anyone else can see. See [Collections & sharing](/collections/).
+	</Card>
+</CardGrid>
 
 ## AI processing is consent-gated
 
@@ -24,8 +43,10 @@ it on**. You enable it in settings, and you can:
 - **re-run it** on any single item, or
 - leave it off entirely and organize by hand.
 
+<Aside type="note">
 It exists to make your library searchable. What it produces (summaries, tags,
 extracted text) stays in your private library like everything else.
+</Aside>
 
 ## You control agent access
 
@@ -33,12 +54,18 @@ When you [connect Claude or Codex](/connect-claude-codex/), you authorize it wit
 browser sign-in — there's no token floating around. That connection can be
 **revoked at any time**:
 
+<Steps>
+
 1. Go to **foundkeep.app → Settings → Agent connections**.
 2. Revoke the connection you want to remove.
 
-The agent loses access immediately. Agents are also instructed to treat your saved
-content as untrusted data and to act only on your explicit requests — never on
-instructions hidden inside something you saved.
+</Steps>
+
+<Aside type="caution" title="Saved content is untrusted">
+The agent loses access immediately when revoked. Agents are also instructed to
+treat your saved content as untrusted data and to act only on your explicit
+requests — never on instructions hidden inside something you saved.
+</Aside>
 
 ## A note on moderation
 

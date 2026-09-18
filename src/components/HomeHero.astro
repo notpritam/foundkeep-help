@@ -1,0 +1,48 @@
+---
+/**
+ * HomeHero — the landing splash hero: a full-width scenic image with a slow
+ * emerald aurora and a gentle parallax drift (both motion-safe), a dark overlay,
+ * and the FoundKeep headline, tagline and primary actions laid over it.
+ */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+	image: ImageMetadata;
+	alt: string;
+}
+
+const { image, alt } = Astro.props;
+---
+
+<section class="fk-hero not-content">
+	<Image
+		class="fk-hero__img"
+		src={image}
+		alt={alt}
+		sizes="(min-width: 72rem) 70rem, 100vw"
+		widths={[800, 1200, 1600]}
+		loading="eager"
+		fetchpriority="high"
+	/>
+	<div class="fk-hero__overlay" aria-hidden="true"></div>
+	<div class="fk-hero__aurora" aria-hidden="true"></div>
+
+	<div class="fk-hero__body">
+		<img class="fk-hero__mark" src="/foundkeep-mark.svg" alt="" width="54" height="54" />
+		<h1 class="fk-hero__title">
+			Keep the things worth keeping.<br />
+			<span class="fk-accent">Find them again.</span>
+		</h1>
+		<p class="fk-hero__tagline">
+			A private place for links, highlights, photos, files, tweets, and notes —
+			saved from anywhere, organized for you, and searchable the day you need it.
+		</p>
+		<div class="fk-hero__actions">
+			<a class="fk-btn fk-btn--primary" href="/getting-started/">Get started</a>
+			<a class="fk-btn fk-btn--ghost" href="https://foundkeep.app/dashboard">
+				Open FoundKeep
+			</a>
+		</div>
+	</div>
+</section>

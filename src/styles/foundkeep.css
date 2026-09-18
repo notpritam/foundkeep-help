@@ -32,6 +32,16 @@
 
 	/* Emerald text on accent buttons should be dark for contrast */
 	--sl-color-text-invert: #08090a;
+
+	/* FoundKeep brand tokens (used by components + illustrations) */
+	--fk-emerald: #4cc38a;
+	--fk-emerald-deep: #2f9d6f;
+	--fk-emerald-soft: rgba(76, 195, 138, 0.14);
+	--fk-radius: 16px;
+	--fk-radius-sm: 12px;
+	--fk-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset,
+		0 18px 40px -24px rgba(0, 0, 0, 0.75);
+	--fk-ring: 1px solid var(--sl-color-hairline-light);
 }
 
 /* Light mode: keep Starlight's readable light defaults, swap the accent to a
@@ -43,12 +53,57 @@
 	--sl-color-text-accent: #0d7a50;
 	--sl-color-bg-accent: #0d7a50;
 	--sl-color-text-invert: #ffffff;
+
+	--fk-emerald: #0d7a50;
+	--fk-emerald-deep: #0a5f3e;
+	--fk-emerald-soft: rgba(13, 122, 80, 0.1);
+	--fk-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset,
+		0 18px 40px -26px rgba(15, 40, 30, 0.35);
+	--fk-ring: 1px solid rgba(15, 30, 25, 0.1);
+}
+
+/* ---------------------------------------------------------------------------
+ * Typography rhythm — a touch more air, calmer measure.
+ * ------------------------------------------------------------------------- */
+.sl-markdown-content {
+	--sl-content-line-height: 1.75;
+}
+.sl-markdown-content :is(h2, h3) {
+	letter-spacing: -0.015em;
+}
+.sl-markdown-content h2 {
+	margin-top: 2.75rem;
+	padding-top: 0.35rem;
+}
+/* A soft emerald tick before every H2, Linear-style. */
+.sl-markdown-content h2::before {
+	content: '';
+	display: block;
+	width: 2.25rem;
+	height: 2px;
+	margin-bottom: 0.85rem;
+	border-radius: 2px;
+	background: linear-gradient(90deg, var(--fk-emerald), transparent);
+	opacity: 0.9;
+}
+.sl-markdown-content :is(p, li) {
+	text-wrap: pretty;
 }
 
 /* Site title next to the mark — tighten it up a touch. */
 .site-title {
 	font-weight: 600;
 	letter-spacing: -0.01em;
+}
+
+/* Links: emerald with a soft animated underline. */
+.sl-markdown-content a:not(.card):not(.sl-link-button):not(:where(.sl-link-card *)) {
+	text-decoration-color: color-mix(in srgb, var(--sl-color-text-accent) 45%, transparent);
+	text-underline-offset: 0.2em;
+	transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.sl-markdown-content a:not(.card):not(.sl-link-button):hover {
+	text-decoration-color: var(--sl-color-text-accent);
 }
 
 /* Accent-coloured action buttons (used on the splash hero). */
@@ -61,16 +116,520 @@
 	filter: brightness(1.08);
 }
 
-/* Cards: a hair of lift, emerald title on hover. */
-.card {
+/* ---------------------------------------------------------------------------
+ * Cards — a hair of lift, emerald title on hover, smooth transitions.
+ * ------------------------------------------------------------------------- */
+.card,
+.sl-link-card {
 	border-color: var(--sl-color-hairline-light);
 	background: var(--sl-color-bg-nav);
+	border-radius: var(--fk-radius-sm);
+	transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
-[data-theme='light'] .card {
+[data-theme='light'] .card,
+[data-theme='light'] .sl-link-card {
 	background: var(--sl-color-gray-6);
+}
+.card .icon {
+	color: var(--sl-color-text-accent);
+	background: var(--fk-emerald-soft);
+	border-radius: 10px;
+	padding: 6px;
+	box-sizing: content-box;
+}
+@media (prefers-reduced-motion: no-preference) {
+	.card:hover,
+	.sl-link-card:hover {
+		transform: translateY(-3px);
+		border-color: color-mix(in srgb, var(--fk-emerald) 40%, var(--sl-color-hairline-light));
+		box-shadow: var(--fk-shadow);
+	}
 }
 
 /* Keep the emerald selection subtle. */
 ::selection {
 	background: rgba(76, 195, 138, 0.28);
+}
+
+/* ---------------------------------------------------------------------------
+ * Figure — image + caption with rounded corners, subtle border/shadow, zoom.
+ * ------------------------------------------------------------------------- */
+.fk-figure {
+	margin: 2rem 0;
+}
+.fk-figure.is-wide {
+	margin-inline: calc(var(--sl-content-pad-x) * -0.5);
+}
+.fk-figure__frame {
+	position: relative;
+	overflow: hidden;
+	border-radius: var(--fk-radius);
+	border: var(--fk-ring);
+	box-shadow: var(--fk-shadow);
+	background: var(--sl-color-bg-nav);
+	line-height: 0;
+}
+.fk-figure__frame img {
+	display: block;
+	width: 100%;
+	height: auto;
+	transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+@media (prefers-reduced-motion: no-preference) {
+	.fk-figure__frame:hover img {
+		transform: scale(1.035);
+	}
+}
+.fk-figure figcaption {
+	margin-top: 0.75rem;
+	font-size: var(--sl-text-sm);
+	color: var(--sl-color-gray-3);
+	text-align: center;
+	line-height: 1.5;
+}
+
+/* ---------------------------------------------------------------------------
+ * Scene banner — scenic image, dark emerald-tinted overlay, optional copy.
+ * ------------------------------------------------------------------------- */
+.fk-scene {
+	position: relative;
+	overflow: hidden;
+	border-radius: var(--fk-radius);
+	border: var(--fk-ring);
+	box-shadow: var(--fk-shadow);
+	margin: 0 0 2rem;
+	isolation: isolate;
+	background: var(--sl-color-black);
+}
+.fk-scene__img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: -2;
+}
+.fk-scene__overlay {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	background: linear-gradient(
+			180deg,
+			rgba(8, 9, 10, 0.35) 0%,
+			rgba(8, 9, 10, 0.55) 55%,
+			rgba(8, 9, 10, 0.9) 100%
+		),
+		radial-gradient(
+			120% 90% at 15% 15%,
+			rgba(76, 195, 138, 0.28) 0%,
+			transparent 55%
+		);
+}
+.fk-scene__body {
+	position: relative;
+	padding: clamp(1.5rem, 4vw, 3rem);
+	min-height: var(--fk-scene-h, 15rem);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	gap: 0.6rem;
+}
+.fk-scene__eyebrow {
+	font-size: var(--sl-text-xs);
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--fk-emerald);
+}
+.fk-scene__title {
+	margin: 0;
+	font-size: clamp(1.5rem, 1rem + 2.4vw, 2.4rem);
+	font-weight: 600;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	color: #f4f4f1;
+}
+.fk-scene__text {
+	margin: 0;
+	max-width: 46ch;
+	color: rgba(244, 244, 241, 0.82);
+	font-size: var(--sl-text-base);
+	line-height: 1.55;
+}
+
+/* ---------------------------------------------------------------------------
+ * Home hero — full-width scenic hero with animated aurora + parallax drift.
+ * ------------------------------------------------------------------------- */
+.fk-hero {
+	position: relative;
+	overflow: hidden;
+	border-radius: 22px;
+	border: var(--fk-ring);
+	box-shadow: var(--fk-shadow);
+	isolation: isolate;
+	background: var(--sl-color-black);
+	margin-bottom: 2.5rem;
+}
+.fk-hero__img {
+	position: absolute;
+	inset: -6% -6% -6% -6%;
+	width: 112%;
+	height: 112%;
+	object-fit: cover;
+	z-index: -3;
+	transform: scale(1.02);
+}
+.fk-hero__overlay {
+	position: absolute;
+	inset: 0;
+	z-index: -2;
+	background: linear-gradient(
+			180deg,
+			rgba(8, 9, 10, 0.4) 0%,
+			rgba(8, 9, 10, 0.62) 50%,
+			rgba(8, 9, 10, 0.92) 100%
+		);
+}
+/* Emerald aurora that slowly drifts across the hero. */
+.fk-hero__aurora {
+	position: absolute;
+	inset: -30%;
+	z-index: -1;
+	background: radial-gradient(
+			38% 44% at 22% 30%,
+			rgba(76, 195, 138, 0.4) 0%,
+			transparent 60%
+		),
+		radial-gradient(
+			34% 40% at 78% 24%,
+			rgba(47, 157, 111, 0.32) 0%,
+			transparent 60%
+		),
+		radial-gradient(
+			40% 44% at 60% 80%,
+			rgba(139, 230, 187, 0.22) 0%,
+			transparent 62%
+		);
+	filter: blur(6px);
+	opacity: 0.85;
+	mix-blend-mode: screen;
+}
+.fk-hero__body {
+	position: relative;
+	padding: clamp(2rem, 5vw, 4.5rem) clamp(1.5rem, 5vw, 4rem);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1.2rem;
+	max-width: 42rem;
+}
+.fk-hero__mark {
+	width: 54px;
+	height: 54px;
+	border-radius: 14px;
+	box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.8);
+}
+.fk-hero__title {
+	margin: 0;
+	font-size: clamp(2rem, 1rem + 4.2vw, 3.4rem);
+	line-height: 1.05;
+	font-weight: 650;
+	letter-spacing: -0.025em;
+	color: #f7f7f4;
+}
+.fk-hero__title .fk-accent {
+	background: linear-gradient(120deg, var(--fk-emerald), #8be6bb);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+.fk-hero__tagline {
+	margin: 0;
+	font-size: clamp(1rem, 0.9rem + 0.6vw, 1.25rem);
+	line-height: 1.55;
+	color: rgba(244, 244, 241, 0.86);
+	max-width: 40ch;
+}
+.fk-hero__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin-top: 0.4rem;
+}
+.fk-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.6rem 1.15rem;
+	border-radius: 999px;
+	font-size: var(--sl-text-sm);
+	font-weight: 600;
+	text-decoration: none;
+	border: 1px solid transparent;
+	transition: transform 0.2s ease, filter 0.2s ease, background 0.2s ease,
+		border-color 0.2s ease;
+}
+.fk-btn--primary {
+	background: var(--fk-emerald);
+	color: #06231a;
+}
+.fk-btn--ghost {
+	background: rgba(255, 255, 255, 0.06);
+	color: #f4f4f1;
+	border-color: rgba(255, 255, 255, 0.16);
+	backdrop-filter: blur(6px);
+}
+@media (prefers-reduced-motion: no-preference) {
+	.fk-btn:hover {
+		transform: translateY(-2px);
+	}
+	.fk-btn--primary:hover {
+		filter: brightness(1.08);
+	}
+	.fk-btn--ghost:hover {
+		background: rgba(255, 255, 255, 0.12);
+	}
+	.fk-hero__aurora {
+		animation: fk-aurora 22s ease-in-out infinite alternate;
+	}
+	.fk-hero__img {
+		animation: fk-hero-drift 32s ease-in-out infinite alternate;
+	}
+}
+@keyframes fk-aurora {
+	0% {
+		transform: translate3d(-4%, -2%, 0) rotate(0deg) scale(1.05);
+		opacity: 0.7;
+	}
+	50% {
+		opacity: 0.95;
+	}
+	100% {
+		transform: translate3d(5%, 3%, 0) rotate(8deg) scale(1.15);
+		opacity: 0.8;
+	}
+}
+@keyframes fk-hero-drift {
+	0% {
+		transform: scale(1.02) translate3d(0, 0, 0);
+	}
+	100% {
+		transform: scale(1.08) translate3d(-2%, -1.5%, 0);
+	}
+}
+
+/* ---------------------------------------------------------------------------
+ * Concept diagrams — inline SVG components, crisp in both themes.
+ * ------------------------------------------------------------------------- */
+.fk-diagram {
+	margin: 2rem 0;
+	padding: clamp(1.1rem, 3vw, 2rem);
+	border-radius: var(--fk-radius);
+	border: var(--fk-ring);
+	background: radial-gradient(
+			120% 130% at 50% -10%,
+			var(--fk-emerald-soft) 0%,
+			transparent 55%
+		),
+		var(--sl-color-bg-nav);
+	box-shadow: var(--fk-shadow);
+}
+[data-theme='light'] .fk-diagram {
+	background: radial-gradient(
+			120% 130% at 50% -10%,
+			var(--fk-emerald-soft) 0%,
+			transparent 55%
+		),
+		var(--sl-color-gray-6);
+}
+.fk-diagram svg {
+	display: block;
+	width: 100%;
+	height: auto;
+	color: var(--sl-color-gray-2);
+}
+.fk-diagram figcaption {
+	margin-top: 0.9rem;
+	text-align: center;
+	font-size: var(--sl-text-sm);
+	color: var(--sl-color-gray-3);
+}
+/* Shared diagram primitives (SVG classes). */
+.fk-d-node {
+	fill: var(--sl-color-bg);
+	stroke: var(--sl-color-hairline-light);
+	stroke-width: 1.5;
+}
+[data-theme='light'] .fk-d-node {
+	fill: #ffffff;
+	stroke: rgba(15, 30, 25, 0.12);
+}
+.fk-d-accent {
+	fill: none;
+	stroke: var(--fk-emerald);
+	stroke-width: 2;
+}
+.fk-d-accent-fill {
+	fill: var(--fk-emerald);
+}
+.fk-d-title {
+	fill: var(--sl-color-white);
+	font-weight: 600;
+}
+.fk-d-label {
+	fill: var(--sl-color-gray-3);
+}
+.fk-d-edge {
+	stroke: var(--sl-color-hairline-light);
+	stroke-width: 1.5;
+	fill: none;
+}
+.fk-d-flow {
+	stroke: var(--fk-emerald);
+	stroke-width: 2;
+	fill: none;
+	stroke-linecap: round;
+}
+
+/* Animated dashed flow + pulsing graph nodes (motion-safe only). */
+@media (prefers-reduced-motion: no-preference) {
+	.fk-d-flow--animated {
+		stroke-dasharray: 6 8;
+		animation: fk-dash 1.4s linear infinite;
+	}
+	.fk-d-pulse {
+		transform-box: fill-box;
+		transform-origin: center;
+		animation: fk-pulse 3.2s ease-in-out infinite;
+	}
+	.fk-d-pulse:nth-of-type(2) {
+		animation-delay: 0.5s;
+	}
+	.fk-d-pulse:nth-of-type(3) {
+		animation-delay: 1s;
+	}
+	.fk-d-pulse:nth-of-type(4) {
+		animation-delay: 1.5s;
+	}
+	.fk-d-pulse:nth-of-type(5) {
+		animation-delay: 2s;
+	}
+}
+@keyframes fk-dash {
+	to {
+		stroke-dashoffset: -14;
+	}
+}
+@keyframes fk-pulse {
+	0%,
+	100% {
+		opacity: 0.55;
+		transform: scale(1);
+	}
+	50% {
+		opacity: 1;
+		transform: scale(1.12);
+	}
+}
+
+/* Capture-surface strip (icons -> library). */
+.fk-capture {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+	gap: 0.85rem;
+	margin: 2rem 0;
+}
+.fk-capture__item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+	text-align: center;
+	padding: 1.1rem 0.75rem;
+	border-radius: var(--fk-radius-sm);
+	border: var(--fk-ring);
+	background: var(--sl-color-bg-nav);
+	transition: transform 0.25s ease, border-color 0.25s ease;
+}
+[data-theme='light'] .fk-capture__item {
+	background: var(--sl-color-gray-6);
+}
+@media (prefers-reduced-motion: no-preference) {
+	.fk-capture__item:hover {
+		transform: translateY(-3px);
+		border-color: color-mix(in srgb, var(--fk-emerald) 40%, var(--sl-color-hairline-light));
+	}
+}
+.fk-capture__icon {
+	display: grid;
+	place-items: center;
+	width: 2.6rem;
+	height: 2.6rem;
+	border-radius: 12px;
+	color: var(--fk-emerald);
+	background: var(--fk-emerald-soft);
+	font-size: 1.3rem;
+}
+.fk-capture__label {
+	font-size: var(--sl-text-sm);
+	font-weight: 600;
+	color: var(--sl-color-white);
+}
+.fk-capture__hint {
+	font-size: var(--sl-text-xs);
+	color: var(--sl-color-gray-3);
+}
+
+/* ---------------------------------------------------------------------------
+ * Scroll reveal — hidden only when JS is on AND motion is allowed.
+ * No JS -> visible. Reduced motion -> visible. Progressive enhancement.
+ * ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+	html.fk-js .fk-reveal {
+		opacity: 0;
+		transform: translateY(18px);
+		transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+			transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+		transition-delay: var(--fk-delay, 0s);
+		will-change: opacity, transform;
+	}
+	html.fk-js .fk-reveal.is-visible {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+/* ---------------------------------------------------------------------------
+ * Code blocks — a touch more depth, rounded, emerald focus ring.
+ * ------------------------------------------------------------------------- */
+.sl-markdown-content .expressive-code {
+	margin: 1.75rem 0;
+}
+.expressive-code .frame pre {
+	border-radius: var(--fk-radius-sm);
+	border: var(--fk-ring);
+}
+.sl-markdown-content :not(pre) > code {
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 6px;
+	padding: 0.15em 0.4em;
+}
+
+/* Asides get a slightly softer, rounder frame. */
+.sl-markdown-content .starlight-aside {
+	border-radius: var(--fk-radius-sm);
+	border-inline-start-width: 3px;
+}
+
+/* Section divider helper. */
+.fk-divider {
+	height: 1px;
+	border: 0;
+	margin: 2.75rem 0;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		var(--sl-color-hairline-light),
+		transparent
+	);
 }

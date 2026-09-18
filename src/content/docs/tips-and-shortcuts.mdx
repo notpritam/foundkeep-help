@@ -3,8 +3,37 @@ title: Tips & shortcuts
 description: Power moves — re-run AI processing, personal tags, linking, filters, and saving highlights.
 ---
 
+import { Steps, Aside, Card, CardGrid } from '@astrojs/starlight/components';
+
 Once FoundKeep is part of your day, a few habits make it much more powerful.
 Here are the ones worth learning.
+
+<CardGrid>
+	<Card title="Re-run AI processing" icon="random">
+		Run processing again on any single item — a fresh summary, tags, category,
+		and OCR replace the old ones.
+	</Card>
+	<Card title="Lean on personal tags" icon="list-format">
+		A handful of consistent tags — `read-later`, `reference`, `idea` — beats any
+		amount of foldering for findability.
+	</Card>
+	<Card title="Save the highlight" icon="pencil">
+		When one passage is the reason you're saving, keep the **selection** — the
+		exact quote, in context.
+	</Card>
+	<Card title="Link as you go" icon="random">
+		Notice two saves belong together? Link them. A second now saves a search
+		later, and it grows your graph.
+	</Card>
+	<Card title="Stack filters with search" icon="magnifier">
+		Filter to **type: image** and search a word to find a screenshot by the text
+		inside it.
+	</Card>
+	<Card title="Let your agent help" icon="puzzle">
+		Connect Claude or Codex and ask them to search, summarize, and tidy your
+		library for you.
+	</Card>
+</CardGrid>
 
 ## Re-run AI processing on an item
 
@@ -12,9 +41,13 @@ Here are the ones worth learning.
 on any single item — useful if you saved before turning processing on, or if a
 save came in before its content was fully available.
 
+<Steps>
+
 1. Open the save from your [dashboard](https://foundkeep.app/dashboard).
 2. Re-run processing on it.
 3. A fresh summary, tags, category, and OCR/text extraction replace the old ones.
+
+</Steps>
 
 ## Lean on personal tags
 
@@ -41,10 +74,10 @@ word to find a screenshot by the text inside it; filter to **type: tweet** to
 browse everything you've [preserved from X](/usecase-keep-tweets-forever/). See
 [Search & filters](/search-and-filters/).
 
-## Save from every device
-
+<Aside type="tip" title="Save from every device">
 Put FoundKeep on your phone's Share sheet *and* pin the browser extension. The
 habit only sticks if saving is frictionless wherever you happen to be.
+</Aside>
 
 ## Let your agent do the heavy lifting
 

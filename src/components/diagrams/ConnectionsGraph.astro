@@ -1,0 +1,46 @@
+---
+/**
+ * Connections graph — a small node-graph illustration (dots + links) evoking the
+ * graph view, where linked saves cluster into a web of ideas. A few nodes gently
+ * pulse (motion-safe only).
+ */
+interface Props {
+	caption?: string;
+}
+const { caption = 'Every link you make adds an edge — clusters form around the ideas you keep returning to.' } =
+	Astro.props;
+---
+
+<figure class="fk-diagram not-content fk-reveal">
+	<svg viewBox="0 0 760 340" role="img" aria-label="A graph of saves connected by links, forming clusters">
+		<!-- edges (drawn first, behind the nodes) -->
+		<g>
+			<line x1="380" y1="175" x2="200" y2="95" class="fk-d-accent" />
+			<line x1="380" y1="175" x2="525" y2="100" class="fk-d-accent" />
+			<line x1="380" y1="175" x2="150" y2="235" class="fk-d-edge" />
+			<line x1="380" y1="175" x2="270" y2="150" class="fk-d-edge" />
+			<line x1="380" y1="175" x2="470" y2="290" class="fk-d-edge" />
+			<line x1="200" y1="95" x2="270" y2="150" class="fk-d-edge" />
+			<line x1="200" y1="95" x2="455" y2="70" class="fk-d-edge" />
+			<line x1="150" y1="235" x2="290" y2="300" class="fk-d-edge" />
+			<line x1="525" y1="100" x2="630" y2="215" class="fk-d-edge" />
+			<line x1="525" y1="100" x2="455" y2="70" class="fk-d-accent" />
+			<line x1="630" y1="215" x2="600" y2="315" class="fk-d-edge" />
+			<line x1="470" y1="290" x2="600" y2="315" class="fk-d-edge" />
+			<line x1="470" y1="290" x2="290" y2="300" class="fk-d-edge" />
+		</g>
+
+		<!-- nodes -->
+		<circle cx="380" cy="175" r="16" class="fk-d-accent-fill fk-d-pulse" />
+		<circle cx="200" cy="95" r="10" class="fk-d-accent fk-d-pulse" fill="var(--sl-color-bg)" />
+		<circle cx="525" cy="100" r="11" class="fk-d-accent fk-d-pulse" fill="var(--sl-color-bg)" />
+		<circle cx="455" cy="70" r="7" class="fk-d-accent-fill fk-d-pulse" />
+		<circle cx="290" cy="300" r="8" class="fk-d-node fk-d-pulse" />
+		<circle cx="150" cy="235" r="9" class="fk-d-node" />
+		<circle cx="270" cy="150" r="7" class="fk-d-node" />
+		<circle cx="630" cy="215" r="9" class="fk-d-node" />
+		<circle cx="470" cy="290" r="8" class="fk-d-node" />
+		<circle cx="600" cy="315" r="7" class="fk-d-node" />
+	</svg>
+	{caption && <figcaption>{caption}</figcaption>}
+</figure>

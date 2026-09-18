@@ -3,6 +3,19 @@ title: A research library
 description: Turn scattered sources into a searchable, connected research library you can actually navigate.
 ---
 
+import { Steps, Aside, Badge } from '@astrojs/starlight/components';
+import SceneBanner from '../../components/SceneBanner.astro';
+import ConnectionsGraph from '../../components/diagrams/ConnectionsGraph.astro';
+import alpine from '../../assets/scenic/foundkeep-alpine-1600.webp';
+
+<SceneBanner
+	image={alpine}
+	alt="Alpine peaks rising above cloud"
+	eyebrow="Use case"
+	title="A research library"
+	text="Turn scattered sources into a searchable, connected library you can actually navigate."
+/>
+
 **Who it's for:** anyone going deep on a topic — a thesis, a market, a product
 decision, a hobby you're serious about — who keeps losing good sources in browser
 tabs and downloads.
@@ -13,13 +26,19 @@ navigate.
 
 ## Set it up
 
+<Steps>
+
 1. Make a **folder** for the topic — say, "Sleep research".
 2. Install the [browser extension](/save-from-anywhere/) so saving a source is one
    click while you read.
 3. Turn on [AI processing](/privacy/) so every source gets a summary, tags, a
    category, and searchable text.
 
+</Steps>
+
 ## The workflow
+
+<Steps>
 
 1. **Capture as you read.** Save papers, articles, and threads with the extension.
    Highlight the key passage and save the **selection** so the quote comes with you.
@@ -34,8 +53,14 @@ navigate.
    summaries and text pulled from PDFs and images, so a half-remembered phrase is
    enough to find the source.
 
+</Steps>
+
+<ConnectionsGraph caption="Linked sources cluster into the shape of your argument." />
+
 ## Take it further
 
-- Share a reading pack with a collaborator as a [collection](/collections/).
-- Let your AI assistant read the whole library and help you synthesize it — see
-  [A second brain for agents](/usecase-second-brain-for-agents/).
+<Aside type="tip">
+Share a reading pack with a collaborator as a [collection](/collections/), or let
+your AI assistant read the whole library and help you synthesize it — see
+[A second brain for agents](/usecase-second-brain-for-agents/).
+</Aside>

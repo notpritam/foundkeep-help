@@ -21,6 +21,40 @@ export default defineConfig({
       },
       favicon: '/favicon.svg',
       customCss: ['./src/styles/foundkeep.css'],
+      head: [
+        {
+          // Scroll-reveal: progressive enhancement only. Adds `fk-js` to <html>
+          // synchronously (so the hidden initial state only applies when JS is
+          // on), then reveals `.fk-reveal` elements as they enter the viewport.
+          // No-op when JS is off; honours prefers-reduced-motion by revealing
+          // everything immediately.
+          tag: 'script',
+          content: `
+document.documentElement.classList.add('fk-js');
+(function () {
+  function init() {
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var nodes = document.querySelectorAll('.fk-reveal:not(.is-visible)');
+    if (reduce || !('IntersectionObserver' in window)) {
+      nodes.forEach(function (n) { n.classList.add('is-visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    nodes.forEach(function (n, i) {
+      if (i < 24) n.style.setProperty('--fk-delay', (Math.min(i, 6) * 60) + 'ms');
+      io.observe(n);
+    });
+  }
+  if (document.readyState !== 'loading') init();
+  else document.addEventListener('DOMContentLoaded', init);
+})();
+`.trim(),
+        },
+      ],
       plugins: [
         starlightBlog({
           // Blog lives at /blog (the plugin's default prefix).

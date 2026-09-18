@@ -2,6 +2,9 @@
 title: Let an AI agent run your library
 date: 2026-09-18
 excerpt: Connect Claude or Codex to FoundKeep and hand off the tedious part — filing, tagging, deduping, and linking — while you keep the last word on what stays.
+cover:
+  alt: Alpine peaks above a sea of cloud
+  image: ../../../assets/scenic/foundkeep-alpine-1600.webp
 authors:
   - foundkeep
 tags:
@@ -10,6 +13,9 @@ tags:
   - Claude
   - Codex
 ---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+import AgentMcpDiagram from '../../../components/diagrams/AgentMcpDiagram.astro';
 
 Saving things is easy. Keeping them *organized* is the part that quietly falls
 apart — the folder you meant to make, the tags you never added, the same tweet
@@ -22,6 +28,8 @@ token to copy, no key to paste — you sign in through your browser once and it
 reconnects quietly after that. The full setup is on the connect page:
 [foundkeep.app/connect](https://foundkeep.app/connect), and mirrored in
 [Connect Claude & Codex](/connect-claude-codex/).
+
+<AgentMcpDiagram />
 
 ## Hand off the boring part
 
@@ -53,11 +61,13 @@ belong together.
 
 ## One caveat worth being clear about
 
-**Agents can't delete your saves.** That's deliberate. When the agent found the
-duplicate tweet, it couldn't remove it — it flagged it with a tag and linked it to
-the original so *you* could deal with it. Removing a save is owner-only: you do it
-yourself in the dashboard. An agent can read, search, create, and organize; it
-can't throw anything away. Nothing leaves your library without you.
+<Aside type="caution" title="Agents can't delete your saves">
+That's deliberate. When the agent found the duplicate tweet, it couldn't remove it
+— it flagged it with a tag and linked it to the original so *you* could deal with
+it. Removing a save is owner-only: you do it yourself in the dashboard. An agent
+can read, search, create, and organize; it can't throw anything away. Nothing
+leaves your library without you.
+</Aside>
 
 ## Two kinds of tags
 
@@ -74,6 +84,8 @@ help you *think*, not just tidy — see
 
 ## How to do this in FoundKeep
 
+<Steps>
+
 1. Open [foundkeep.app/connect](https://foundkeep.app/connect) and connect
    **Claude Code**, **Claude Desktop**, or **Codex**. Follow
    [Connect Claude & Codex](/connect-claude-codex/) for the exact per-client steps.
@@ -83,3 +95,5 @@ help you *think*, not just tidy — see
 4. Let it add [tags](/folders-and-tags/) and [link related saves](/link-saves-and-graph/).
    It will flag duplicates rather than delete them.
 5. Open the dashboard and clear out anything it flagged — deleting is yours alone.
+
+</Steps>

@@ -3,11 +3,25 @@ title: Collections & sharing
 description: Create collections, share them, the difference between members and followers, and discovering public collections.
 ---
 
+import { Steps, Aside, Card, CardGrid } from '@astrojs/starlight/components';
+import SceneBanner from '../../components/SceneBanner.astro';
+import coastal from '../../assets/scenic/foundkeep-coastal-1600.webp';
+
+<SceneBanner
+	image={coastal}
+	alt="A sunlit coastline with clear turquoise water"
+	eyebrow="Share"
+	title="Collections & sharing"
+	text="A collection is a group of saves you can share — with the people you invite, or with anyone."
+/>
+
 A **collection** is a group of saves you can share. Where folders and tags keep
 *your* library organized, collections are how a set of saves becomes something
 other people can see, follow, or help build.
 
 ## Create a collection
+
+<Steps>
 
 1. From your [dashboard](https://foundkeep.app/dashboard), create a new collection
    and give it a name.
@@ -15,17 +29,26 @@ other people can see, follow, or help build.
    — collections don't move things, they gather them.
 3. Keep it private, or share it when it's ready.
 
+</Steps>
+
 ## Members vs. followers
 
 Collections have two kinds of people, and the difference matters:
 
-- **Members** can contribute. Invite someone as a member and they can add saves to
-  the collection and help shape it. Use members for a shared, collaborative
-  collection.
-- **Followers** can view. When you make a collection public, people can **follow**
-  it to keep up with what you add, without being able to change it.
+<CardGrid>
+	<Card title="Members build it" icon="pencil">
+		Invite someone as a **member** and they can add saves to the collection and
+		help shape it. Use members for a shared, collaborative collection.
+	</Card>
+	<Card title="Followers watch it" icon="heart">
+		When you make a collection public, people can **follow** it to keep up with
+		what you add, without being able to change it.
+	</Card>
+</CardGrid>
 
+<Aside type="tip">
 In short: **members build it, followers watch it.**
+</Aside>
 
 ## Sharing and public collections
 
@@ -40,8 +63,10 @@ you choose to share or publish it.
 
 ## A note on moderation
 
+<Aside type="caution" title="Moderation is owner-run">
 The owner of a collection moderates it — you decide what stays. There is no
-public "report" button today; moderation is owner-run.
+public "report" button today.
+</Aside>
 
 ## Next
 

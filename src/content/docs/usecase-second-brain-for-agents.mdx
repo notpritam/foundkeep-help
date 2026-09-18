@@ -3,6 +3,19 @@ title: A second brain for agents
 description: Save everything into FoundKeep, then let Claude and Codex read, search, and organize it through MCP.
 ---
 
+import { Steps, Aside } from '@astrojs/starlight/components';
+import SceneBanner from '../../components/SceneBanner.astro';
+import AgentMcpDiagram from '../../components/diagrams/AgentMcpDiagram.astro';
+import stillwater from '../../assets/scenic/foundkeep-stillwater-1600.webp';
+
+<SceneBanner
+	image={stillwater}
+	alt="A still mountain lake mirroring the peaks above it"
+	eyebrow="Use case"
+	title="A second brain for agents"
+	text="Save broadly, then let Claude and Codex read, search, and tend the library on your behalf."
+/>
+
 **Who it's for:** people who work with AI assistants — Claude, Codex — and want them
 to draw on what *they've* actually read and kept, not just the open web.
 
@@ -10,7 +23,11 @@ Your FoundKeep library is a record of what matters to you. Connect an agent, and
 that library becomes a tool the agent can read, search, and organize on your
 behalf. It's a second brain that your AI can use.
 
+<AgentMcpDiagram />
+
 ## Set it up
+
+<Steps>
 
 1. Save broadly. The more of your reading, notes, and references live in
    FoundKeep, the more useful your agent's memory is. See
@@ -20,10 +37,16 @@ behalf. It's a second brain that your AI can use.
 3. Connect your agent at [foundkeep.app/connect](https://foundkeep.app/connect).
    Full steps are in [Connect Claude & Codex](/connect-claude-codex/).
 
-There's **no token to copy**. You approve the connection with a browser sign-in,
-and you can revoke it any time in **Settings → Agent connections**.
+</Steps>
+
+<Aside type="note" title="No token to copy">
+You approve the connection with a browser sign-in, and you can revoke it any time
+in **Settings → Agent connections**.
+</Aside>
 
 ## The workflow
+
+<Steps>
 
 1. **Keep saving as usual.** Your library grows through normal use.
 2. **Ask your agent to use it.** Once connected, ask Claude or Codex to search your
@@ -32,12 +55,19 @@ and you can revoke it any time in **Settings → Agent connections**.
 3. **Let it organize.** The connection lets your agent help *tend* the library too —
    tagging, grouping, and linking — not just read it.
 
+</Steps>
+
 ## Why it's different
 
 - The agent works from **what you chose to keep**, so its answers are grounded in
   your sources, not guesses.
 - Preserved [tweets and threads](/usecase-keep-tweets-forever/), readable article
   text, and OCR'd images are all fair game for the agent to search.
+
+<Aside type="caution" title="It can't delete">
+An agent can read, search, create, and organize — but removing a save is
+owner-only. Nothing leaves your library without you.
+</Aside>
 
 ## Next
 
