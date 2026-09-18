@@ -1,0 +1,85 @@
+---
+title: Let an AI agent run your library
+date: 2026-09-18
+excerpt: Connect Claude or Codex to FoundKeep and hand off the tedious part — filing, tagging, deduping, and linking — while you keep the last word on what stays.
+authors:
+  - foundkeep
+tags:
+  - Agents
+  - Organizing
+  - Claude
+  - Codex
+---
+
+Saving things is easy. Keeping them *organized* is the part that quietly falls
+apart — the folder you meant to make, the tags you never added, the same tweet
+saved twice from two different phones. It's real work, and it's boring, and it's
+exactly the kind of work an agent is good at.
+
+FoundKeep connects to **Claude Code**, **Claude Desktop**, and **Codex** over
+MCP, so an assistant you already use can read and tend your library directly. No
+token to copy, no key to paste — you sign in through your browser once and it
+reconnects quietly after that. The full setup is on the connect page:
+[foundkeep.app/connect](https://foundkeep.app/connect), and mirrored in
+[Connect Claude & Codex](/connect-claude-codex/).
+
+## Hand off the boring part
+
+Once an agent is connected, you can just describe the mess and ask it to sort it
+out. Tell it to file loose saves into folders, add tags, find duplicates, and
+link things that belong together. It works from what *you* chose to keep, so its
+choices stay grounded in your own sources rather than the open web.
+
+Here's a real pass, run over a pile of saved tweets that had never been filed.
+The agent sorted them into three folders — **Design**, **Marketing**, and
+**Thoughts** — and did it item by item:
+
+- Into **Design** it filed a tweet showing a **travel-app UI**, a **gradients**
+  resource ([grainient.supply](https://grainient.supply)), and a list of
+  **UI-component libraries**.
+- Into **Marketing** it filed a **"clipper" playbook** — the kind of growth
+  write-up you want to find again when you actually sit down to ship.
+- Into **Thoughts** went the more reflective saves — the ones that aren't a
+  resource so much as an idea worth sitting with.
+
+Then it went past filing. It found a **tweet that had been saved twice**, tagged
+the copy so it was easy to spot, and **linked it to the original** instead of
+leaving two loose duplicates. And it **linked related saves to each other** — the
+gradients resource, the travel-app UI, and the component-libraries list all point
+at one another now, so opening any one of them surfaces the other two. That's the
+[connections graph](/link-saves-and-graph/) doing what it's for: things that were
+saved weeks apart, on different days, sitting together because they actually
+belong together.
+
+## One caveat worth being clear about
+
+**Agents can't delete your saves.** That's deliberate. When the agent found the
+duplicate tweet, it couldn't remove it — it flagged it with a tag and linked it to
+the original so *you* could deal with it. Removing a save is owner-only: you do it
+yourself in the dashboard. An agent can read, search, create, and organize; it
+can't throw anything away. Nothing leaves your library without you.
+
+## Two kinds of tags
+
+While it works, the agent leans on tags — and it's worth knowing there are two
+kinds. There are **AI-generated tags**, added automatically during processing to
+describe what a save is about, and there are **your own personal tags**, the words
+that mean something to you. An agent can add and adjust both, but the personal
+ones stay yours to steer. More on the difference in
+[Folders & tags](/folders-and-tags/).
+
+If you want to go further — letting an assistant read across the whole library and
+help you *think*, not just tidy — see
+[A second brain for agents](/usecase-second-brain-for-agents/).
+
+## How to do this in FoundKeep
+
+1. Open [foundkeep.app/connect](https://foundkeep.app/connect) and connect
+   **Claude Code**, **Claude Desktop**, or **Codex**. Follow
+   [Connect Claude & Codex](/connect-claude-codex/) for the exact per-client steps.
+2. Sign in through your browser when the client prompts you the first time.
+3. Ask the agent to sort a folder or your unfiled saves — for example: *"File
+   these into folders, tag them, link related ones, and flag any duplicates."*
+4. Let it add [tags](/folders-and-tags/) and [link related saves](/link-saves-and-graph/).
+   It will flag duplicates rather than delete them.
+5. Open the dashboard and clear out anything it flagged — deleting is yours alone.

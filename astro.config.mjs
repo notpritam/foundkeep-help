@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightLinksValidator from 'starlight-links-validator';
+import starlightBlog from 'starlight-blog';
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,7 +21,27 @@ export default defineConfig({
       },
       favicon: '/favicon.svg',
       customCss: ['./src/styles/foundkeep.css'],
-      plugins: [starlightLinksValidator()],
+      plugins: [
+        starlightBlog({
+          // Blog lives at /blog (the plugin's default prefix).
+          title: 'Blog',
+          authors: {
+            foundkeep: {
+              name: 'FoundKeep',
+              title: 'The FoundKeep Blog',
+              url: 'https://foundkeep.app',
+            },
+          },
+        }),
+        starlightLinksValidator({
+          // The blog index at /blog/ is a paginated route injected by
+          // starlight-blog; Astro's build:done page list doesn't include it, so
+          // the validator can't see it even though dist/blog/index.html exists.
+          // Individual /blog/<slug>/ posts are real content pages and still get
+          // validated normally.
+          exclude: ['/blog/'],
+        }),
+      ],
       // Default to dark; light mode still available via the theme toggle.
       components: {
         ThemeProvider: './src/components/ThemeProvider.astro',

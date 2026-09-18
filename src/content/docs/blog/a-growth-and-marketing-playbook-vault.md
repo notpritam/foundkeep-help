@@ -1,0 +1,61 @@
+---
+title: A growth & marketing playbook vault
+date: 2026-09-16
+excerpt: Save the launch tactic, the clipper playbook, the growth thread the moment you see it — so it's waiting for you when you finally sit down to execute.
+authors:
+  - foundkeep
+tags:
+  - Marketing
+  - Growth
+  - Research
+  - Organizing
+---
+
+Good marketing advice never shows up when you need it. You see the sharp thread on
+launch tactics while you're doing something else entirely, nod, and lose it. Then
+launch week arrives and you're starting from a blank page, sure you read something
+useful once.
+
+A playbook vault fixes the timing problem. You save the tactic *when you see it*,
+and it's there *when you execute* — searchable, tagged, and grouped with the rest.
+
+## Save it the moment it goes by
+
+The whole point is to catch these while they're in front of you, not to bookmark
+them and hope. Save straight from the [browser extension](/save-from-anywhere/) or
+your phone's Share sheet, and the thread comes in whole. A couple of the saves that
+tend to earn their keep:
+
+- A **launch-video growth thread** — the "how to get 500k–10m views on a launch
+  video" kind, the specific one you'll want the night before you post.
+- A **content-clipper playbook** — the repeatable process for turning one piece of
+  work into a week of clips.
+
+Because FoundKeep preserves the **full text** of tweets and threads server-side —
+not just a link — the tactic is still readable months later even if the original
+post is edited or gone. More on that in
+[Keep tweets forever](/usecase-keep-tweets-forever/).
+
+## Resurface it exactly when you need it
+
+Saving is half of it; the other half is getting back to it. Full-text
+[search](/search-and-filters/) reaches the summary and the preserved text, so a
+half-remembered phrase — `launch video`, `clipper` — pulls the right playbook back
+up. Add **personal tags** like `launch`, `growth`, `to-try` so a whole campaign's
+worth of tactics comes together in one filter. See
+[Folders & tags](/folders-and-tags/) for how tags stack up.
+
+Treated this way, your vault behaves less like a bookmark pile and more like a
+[research library](/usecase-research-library/) — a set of sources you can actually
+query the day you sit down to work, instead of re-Googling from scratch.
+
+## How to do this in FoundKeep
+
+1. Make a **Marketing** (or **Growth**) folder for the tactics you collect.
+2. Save threads and playbooks with the [extension](/save-from-anywhere/) or the
+   Share sheet the moment you see them — the full text comes with them.
+3. Turn on **AI processing** so each save gets a summary and tags you can search.
+4. Add personal tags — `launch`, `growth`, `to-try` — so a campaign's tactics
+   group together. See [Folders & tags](/folders-and-tags/).
+5. When you sit down to execute, [search](/search-and-filters/) a phrase or filter
+   by tag to pull the playbook straight back up.
